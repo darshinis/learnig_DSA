@@ -1,9 +1,15 @@
+"""
+Node is user data type created for Tree Node
+"""
 class Node:
     def __init__(self,data):
         self.data = data
         self.left = None
         self.right = None
-        
+"""
+entire tree functionality and operations are performed in Tree class
+Tree nodes are type Node()
+"""
 class Tree:
     def __init__(self):
         self.root = None
@@ -14,24 +20,38 @@ class Tree:
                 node.right=self.insert(data,node.right)
             elif data<node.data:
                 node.left=self.insert(data,node.left)
-        return Node(data)
+            return node   
+        else:
+            return Node(data)
     def preorder(self,node):
             if node:
-                
+                print("node.data : ",node.data)
+                self.preorder(node.left)
+                self.preorder(node.right)
+            else:
+                return
+    def postorder(self,node):
+            if node:
+                self.preorder(node.left)
+                self.preorder(node.right)
+                print("node.data : ",node.data)
+            else:
+                return
+    def inorder(self,node):
+            if node:
                 self.preorder(node.left)
                 print("node.data : ",node.data)
                 self.preorder(node.right)
             else:
                 return
 
-n = int(input())
-tree = Tree()
-tree.root = Node(int(input()))
-print("tree.root : ",tree.root.data)
-for i in range(n-1):
-    tree.insert(int(input("enter value : ")),tree.root)
-
-print("#################")
-tree.preorder(tree.root)
+if __name__=='__main__':
+    n = int(input())
+    tree = Tree()
+    tree.root = Node(int(input()))
+    for i in range(n-1):
+        tree.insert(int(input("enter value : ")),tree.root)
+    print("#################")
+    tree.preorder(tree.root)
     
             
