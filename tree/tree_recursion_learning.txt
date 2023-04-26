@@ -1,0 +1,3 @@
+Note:
+1. when ever using the recurssion return should be placed for base case and on succession too if not it will break the connect
+eample : in insertion function if return is not placed in if condition last leaf node were connecting to the root node 
