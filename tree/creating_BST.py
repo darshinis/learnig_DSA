@@ -14,13 +14,15 @@ class Tree:
                 node.right=self.insert(data,node.right)
             elif data<node.data:
                 node.left=self.insert(data,node.left)
-        else:
-            return Node(data)
+        return Node(data)
     def preorder(self,node):
-            
-            print("node.data : ",node.data)
-            self.preorder(node.left)
-            self.preorder(node.right)
+            if node:
+                
+                self.preorder(node.left)
+                print("node.data : ",node.data)
+                self.preorder(node.right)
+            else:
+                return
 
 n = int(input())
 tree = Tree()
@@ -28,9 +30,7 @@ tree.root = Node(int(input()))
 print("tree.root : ",tree.root.data)
 for i in range(n-1):
     tree.insert(int(input("enter value : ")),tree.root)
-print("tree.root.data : ",tree.root.data)
-print("tree.root.data : ",tree.root.left.data)
-print("tree.root.data : ",tree.root.right.data)
+
 print("#################")
 tree.preorder(tree.root)
     
