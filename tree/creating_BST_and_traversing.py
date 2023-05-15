@@ -54,4 +54,25 @@ if __name__=='__main__':
     print("#################")
     tree.preorder(tree.root)
     
+    
+###########################################################
+###            second way to write insert               ###
+###########################################################
+def insert(self,data,node):
+            newNode = Node(data)
+            if data<node.data:
+                if node.left:
+                    self.insert(data,node.left)
+                else:
+                    node.left = newNode
+                    return
+            
+            elif data>node.data:
+                if node.right:
+                    self.insert(data,node.right)
+                else:
+                    node.right = newNode
+                    return
+                
+ ###########################################################
             
