@@ -74,5 +74,15 @@ def insert(self,data,node):
                     node.right = newNode
                     return
                 
- ###########################################################
+###########################################################
+###                  print tree nodes                   ###
+###########################################################
+def printTree(self,node):
+        if node:
+            self.printTree(node.left)
+            
+            self.printTree(node.right)
+            print(node.data)
+        else:
+            return
             
